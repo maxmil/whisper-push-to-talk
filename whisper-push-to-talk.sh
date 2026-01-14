@@ -14,8 +14,8 @@ WHISPER_MODEL="$SCRIPT_DIR/../whisper.cpp/models/ggml-base.en.bin"
 
 # Find your device with: ./find-input-device.sh
 # Find keycode with: python3 ./find-keycode.py
-INPUT_DEVICE="/dev/input/event6"
-KEYCODE=119  # Pause
+INPUT_DEVICE="/dev/input/event7"
+KEYCODE=119  # Scroll Lock
 
 # How long to keep typing after key release (seconds)
 RELEASE_DELAY=2.0
