@@ -151,14 +151,19 @@ install_files() {
     echo "[OK] Files installed"
 }
 
-# Check ydotool service
-check_ydotool_service() {
+# Enable ydotool service
+enable_ydotool_service() {
     if systemctl --user is-active --quiet ydotool 2>/dev/null; then
         echo "[OK] ydotool service is running"
     else
-        echo "[!!] ydotool service is not running"
-        echo "     Enable it with: systemctl --user enable --now ydotool"
-        exit 1
+        echo "Enabling ydotool service..."
+        systemctl --user enable --now ydotool
+        if systemctl --user is-active --quiet ydotool 2>/dev/null; then
+            echo "[OK] ydotool service started"
+        else
+            echo "[!!] Failed to start ydotool service"
+            exit 1
+        fi
     fi
 }
 
@@ -186,7 +191,7 @@ main() {
     check_dependencies
     check_groups
     setup_uinput
-    check_ydotool_service
+    enable_ydotool_service
     install_files
     install_whisper
     install_model
