@@ -1,0 +1,13 @@
+[Unit]
+Description=Whisper Push-to-Talk Dictation
+Documentation=https://github.com/maxmil/whisper-push-to-talk
+After=ydotool.service
+
+[Service]
+Type=simple
+ExecStart=%h/whisper-push-to-talk/whisper-push-to-talk.sh
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=default.target

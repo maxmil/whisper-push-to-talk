@@ -1,0 +1,13 @@
+# Swap files
+*.swp
+*.swo
+*~
+
+# Log files
+*.log
+
+# Temporary files
+/tmp/
+
+# Claude Code
+.claude/
